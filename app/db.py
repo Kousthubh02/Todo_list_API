@@ -11,7 +11,7 @@ def init_db(app):
     
 
     # MongoDB URI
-    mongo_uri = f"mongodb+srv://{username}:{password}@cluster0.2o0bzi6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongo_uri = f"mongodb+srv://{username}:{password}@cluster0.2o0bzi6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true"
     
     # Initialize MongoDB client and database
     client = MongoClient(mongo_uri)
