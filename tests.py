@@ -16,9 +16,9 @@ class TodoAppTestCase(unittest.TestCase):
         password = "Kousthubh%40mongodb"
         mongo_uri = f"mongodb+srv://{username}:{password}@cluster0.2o0bzi6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-        # Initialize MongoDB client and database
+        # Initialize MongoDB 
         client = MongoClient(mongo_uri)
-        self.app.db = client['testdb']  # Store db in app context
+        self.app.db = client['testdb']  
 
         # Register routes blueprint
         self.app.register_blueprint(routes)

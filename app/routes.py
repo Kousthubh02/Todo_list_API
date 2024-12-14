@@ -8,7 +8,7 @@ def register_routes(app):
 
 @routes.route('/add', methods=['POST'])
 def add_todo():
-    db = current_app.db  # Use current_app to access db
+    db = current_app.db  
     data = request.json
     if not data or 'title' not in data:
         return jsonify({'error': 'Title is required'}), 400
@@ -20,7 +20,7 @@ def add_todo():
 
 @routes.route('/display', methods=['GET'])
 def get_all_todos():
-    db = current_app.db  # Use current_app to access db
+    db = current_app.db  
     todos = list(db.todos.find())
     if not todos:
         return jsonify({'message': 'All tasks are completed'}), 200
@@ -31,7 +31,7 @@ def get_all_todos():
 
 @routes.route('/edit/<todo_id>', methods=['PUT'])
 def update_todo(todo_id):
-    db = current_app.db  # Use current_app to access db
+    db = current_app.db  
     data = request.json
     if not data:
         return jsonify({'error': 'No data provided'}), 400
@@ -55,7 +55,7 @@ def update_todo(todo_id):
 
 @routes.route('/delete/<todo_id>', methods=['DELETE'])
 def delete_todo(todo_id):
-    db = current_app.db  # Use current_app to access db
+    db = current_app.db  
     result = db.todos.delete_one({'_id': ObjectId(todo_id)})
     if result.deleted_count == 0:
         return jsonify({'error': 'Todo not found'}), 404

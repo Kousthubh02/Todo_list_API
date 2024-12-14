@@ -15,4 +15,4 @@ def init_db(app):
     
     # Initialize MongoDB client and database
     client = MongoClient(mongo_uri)
-    app.db = client['dimensionless_todo_list']  # Store db in app context
+    app.db = client['dimensionless_todo_list']  
