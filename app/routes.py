@@ -22,6 +22,8 @@ def add_todo():
 def get_all_todos():
     db = current_app.db  # Use current_app to access db
     todos = list(db.todos.find())
+    if not todos:
+        return jsonify({'message': 'All tasks are completed'}), 200
     return jsonify([
         {'id': str(todo['_id']), 'title': todo['title'], 'description': todo.get('description', ''), 'completed': todo.get('completed', False)}
         for todo in todos
